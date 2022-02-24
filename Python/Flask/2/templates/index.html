@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GIC Rate</title>
+<!--The title of the web-->
+		<style>
+			body {
+		          font-size:20px;
+		          text-align:center;
+		          font-family:serif;
+			}
+/* This CSS code to change the font size and 
+align */
+
+			h2 {
+                font-family: verdana;
+                text-align:center;
+			}
+/* To change h2 font and algin */
+			p2 {
+				color: green;
+			} 
+			p3 {
+				color: red;
+			}
+			
+/* To change p2 and p4 color */
+			.btn{
+				background-color: #4caf50;
+				border: none;
+				color:white;
+				padding: 10px;
+				text-align:center
+			}
+/* To change the button color */
+		</style>
+	</head>
+	<body>
+			<h2>GIC Feedback</h2>
+			<form action="" method="post" role="form">
+				<label for="name">Name:</label>
+			    <br />
+				<input type="text" class="form-control" id="name" name="name" placeholder="Name?">
+				<br />
+				<br />
+						
+				<label for="gicnumber">GIC Number:</label>
+			    <br />
+				<input type="text" class="form-control" id="gicnumber" name="gicnumber" placeholder="Your GIC Number?">
+				<br />
+				<br />
+					
+				<label for="email">Email:</label>
+		        <br />
+				<input type="text" class="form-control" id="email" name="email" placeholder="Your Email Address?">
+				<br />
+				<br />
+				
+                 <label for="qu1">Descrip the course?</label>
+				<br />
+				<input type="text" class="form-control" id="qu1" name="qu1" placeholder="Your Answer?">
+				<br />
+				<br />
+			
+                 <label for="qu2">How far do you like the Course?</label>
+				<br />
+				<input type="text" class="form-control" id="qu2" name="qu2" placeholder="Your Answer?">
+				<br />
+				<br />
+<!-- All there codes for the questions labels and
+have speace to write answers in-->
+
+                <p>Do you like the course:</p>
+
+                 {{ form.o1() }} {{ form.o1.label }}  
+<!--These codes for the yes no question-->
+                <br />  
+				</body>		
+				<br />
+				
+				<button type="submit" class="btn">Submit</button>
+<!-- This code for the button-->
+				
+			</form>
+			    <br />
+			
+				{% with messages  = get_flashed_messages(with_categories=true) %}
+					{% if messages %}
+				{% for message in messages %}
+					{% if "Error" not in message[1]: %}
+						<div class="alert alert-info">
+							<p2>	<strong>Success! </strong> {{ message[1] }}
+						</div>
+						</p2>
+						
+					{% endif %}
+					{% if "Error" in message[1]: %}
+						<div class="alert alert-danger">
+							<p3>	<strong>Error: </strong> {{ message[1] }}
+						</div>
+					{% endif %}
+				{% endfor %}
+					{% endif %}
+				{% endwith %}
+				</p3>
+<!--These codes for masseges if you submit
+asnwers corectly or no -->
+	</body>
+</html>

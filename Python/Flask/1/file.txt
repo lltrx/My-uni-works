@@ -1,0 +1,4 @@
+Name=turki, GicNumber=222, Email=turkif182@gmail.com, Answer1=i love it, Answer2=great, Answer3=3 
+Name=turki, GicNumber=222, Email=turkif182@gmail.com, Answer1=i love it, Answer2=great, Answer3=3 
+Name=turki, GicNumber=222, Email=turkif182@gmail.com, Answer1=i love it, Answer2=great, Answer3=1 
+Name=turki, GicNumber=222, Email=turkif182@gmail.com, Answer1=i love it, Answer2=great, Answer3=5 

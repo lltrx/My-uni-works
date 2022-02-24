@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html> 
+<!--These line are importnat in each html web, they for starting the code-->
+    <head>
+        <title> GIC Questionnaire</title>
+<!--Between the html tag and the body tag comes the head element, which serves as a metadata container-->
+<!--The title element specifies the document's title. The title must be text-only and appear in the title bar of the browser or in the tab of the page-->
+    </head>
+    <style>
+/*The style tag is used to define a document's CSS style information.
+You indicate how HTML components should render in the browser inside the style element*/
+        body {
+            background-color: rgb(170, 163, 163);
+            text-align: center;
+        }
+/*In body I changed the backgrohnd colour and the text align to be in the center*/
+        label {
+            text-align: center;
+            font-size: larger;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+        }
+/*For label, I also used text align and I customised my texts by chaning the font size, font family and the color*/ 
+        input{
+            font-size: large;
+        }
+/*I didn"t use that much to customise the input just I changed the font size to large*/
+        h1{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
+        }
+/*For h1 I just changed the font family and the color of the text*/
+        p{
+            font-size: large;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+        }
+        p2{
+            color: green;
+            font-size: large;
+        }
+        p3{
+            color: red;
+            font-size: large;
+        }
+        button{
+            font-size: large;
+            color: white;
+        }
+/*For the above element I just customised them by chaning colors and font size*/
+        img{
+            width: 300x;
+            height: 100px;
+            padding-right: 1200px;
+        }
+/*For the imge I changed the width, height and padding right to chaning the position*/
+
+    </style>
+    <body>
+<!--The body tag defines the body of the document.
+The body element includes all HTML document contents, including headers, paragraphs, pictures, hyperlinks, tables, lists, etc.
+Note: In an HTML document there can be only one body element-->
+
+        <img src="static/logo.png">
+
+<!--The img tag serves for inserting a picture into the HTML page-->
+<!--The path to the picture is specified by src-->
+        <div class="container">
+<!--The div tag is used as a container for HTML elements -->
+        <Center> 
+            <h1>Rate Your experience</h1>
+<!--To center the text, h1 is a heading and 1 is the size of it-->
+        </Center>
+        <form action="" method="post" role="form">
+<!--The form element is used to build a user-input HTML form-->
+        <label for="name">Name:</label>
+<!--To link the two elements together, the for property of label must match the id attribute of the related element. 
+An element can also be tied to a label by enclosing it in the label element-->
+        <br />
+        <input type="text" class="form-control" id="name" name="name" placeholder=" Your Name?">
+        <br />
+        <label for="gicnumber">GIC Number:</label>
+        <br />
+        <input type="text" class="form-control" id="gicnumber" name="gicnumber" placeholder="Your GIC Number?">
+        <br />
+        <label for="email">Email:</label>
+        <br />
+        <input type="text" class="form-control" id="email" name="email" placeholder="Your Email?">
+        <br />
+        <label for="q1">Write Your experience?</label>
+        <br />
+        <input type="text" class="form-control" id="q1" name="q1" placeholder="Your Answer?">
+        <br />
+        <label for="q2">Would you recommend us to your friends to study at GIC? why?</label>
+        <br />
+        <input type="text" class="form-control" id="q2" name="q2" placeholder="Your Answer?">
+        <br />
+
+		<p>Rate the cource:</p>
+<!--A paragraph of text is defined by the p tag-->
+            {{ form.q3() }} 
+
+        <br />
+        
+        <button type="submit" class="btn btn-success" style="color:black;" >Submit</button> 
+<!--A clickable button is defined by the button tag.
+You can insert text inside a button element (and tags like i, b, strong, br, img, etc.). With a button generated with the input element, this is not feasible!
+To notify browsers what sort of button it is, always supply the type property for a button element.
+CSS may be used to simply design buttons! Take a look at the samples below or go to our CSS Buttons guide for more information.-->
+        <br />
+        <br />
+            {% with messages  = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+            {% for message in messages %}
+                {% if "Error" not in message[1]: %}
+                    <div class="alert alert-info">
+                 <p2>  <strong>Success! </strong> {{ message[1] }} </p2>
+                    </div>
+                {% endif %}
+                {% if "Error" in message[1]: %}
+                    <div class="alert alert-danger">
+                 <p3>  <strong>Error: </strong> {{ message[1] }} </p3>
+<!--The HTML strong element emphasises content, which in turn causes the text to appear bold in the browser. 
+The powerful element is another frequent name for this tag-->
+                    </div>
+                {% endif %}
+            {% endfor %}
+                {% endif %}
+            {% endwith %}
+    </body>
+</html>
